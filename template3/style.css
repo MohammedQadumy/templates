@@ -4,6 +4,8 @@
     --text-color:#000000;
     --main-transition-duration:0.3s;
     --little-grey:#ececec;
+    --main-section-padding:100px;
+    --section-background:#ececec;
 }
 * {
     box-sizing: border-box;
@@ -50,7 +52,7 @@ a{
 }
 
 .main-title{
-    margin: 100px auto;
+    margin: 0 auto 80px;
     border: 2px solid black;
     padding: 10px 20px ;
     font-size: 30px;
@@ -289,7 +291,7 @@ header .mega-menu .links li a i{
  max-width: 500px;
 }
 @media (max-width:991px) {
-    .container .image img{
+    .landing img{
         display: none;
     }
 }
@@ -332,6 +334,252 @@ header .mega-menu .links li a i{
 .landing .go-down i{
     animation: bouncing 1.5s linear infinite;
 }
+
+.articles{
+    padding: var(--main-section-padding) 0px;
+}
+
+.articles .container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+.articles .box {
+    box-shadow: -1px 5px 15px 2px rgb(0 0 0 / 10%);
+    transition: transform var(--main-transition-duration, 0.3s) , box-shadow var(--main-transition-duration);
+    background-color: white;
+    border-radius: 6px;
+    overflow: hidden;
+    transform: translateY(0); 
+}
+
+.articles .box:hover {
+    transform: translateY(-10px); 
+    box-shadow: -1px 5px 15px 2px rgb(0 0 0 / 20%);
+}
+
+.articles .box:hover .info i{
+    animation: moving-arrow 0.6s linear infinite;
+}
+.box img{
+    width: 100%;
+    max-width: 100%;
+}
+.box .content{
+    padding: 20px;
+    border-bottom: 1px solid #E6E6E7;
+}
+.box .content h3{
+    font-size: 18px;
+    margin: 0;
+    color: var(--text-color);
+}
+.box .content p{
+    margin: 10px 0px 0px;
+    line-height: 1.5;
+    color:#777;
+}
+.box .info{
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+.box .info a{
+    color: var(--main-color);
+    font-weight: bold;
+}
+.box .info i{
+    color: var(--main-color);
+}
+
+.gallery{
+    padding: var(--main-section-padding) 0px;
+    position: relative;
+    background-color: var(--section-background);
+
+}
+.gallery .container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.gallery .box{
+    padding: 15px;
+    background-color: white;
+    box-shadow: 0px 12px 20px 0px rgb(0 0 0 / 13%),0px 2px 4px 0px rgb(0 0 0 / 12%);
+}
+.gallery .box .image{
+    position: relative;
+    overflow: hidden;
+
+    
+}
+.gallery .box .image::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color:rgb(255 255 255 / 20%);
+    width: 0px;
+    height: 0px;
+    opacity: 0;
+    z-index: 2;
+}
+
+.gallery .box .image:hover::before {
+    animation: flashing 0.7s;
+}
+
+
+.gallery img{
+    width: 100%;
+    transition: var(--main-transition-duration);
+}
+
+.gallery .box .image:hover img {
+    transform: rotate(5deg) scale(1.1);
+}
+
+.features{
+    padding: var(--main-section-padding) 0px;
+    position: relative;
+    background-color: white;
+}
+.features .container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
+}
+.features .box{
+    text-align: center;
+    border:1px solid #ccc;
+
+}
+.features .box .img-holder{
+    position: relative;
+    overflow: hidden;
+}
+.features .box .img-holder::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+.features .box .img-holder::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-style: solid;
+    border-width: 0px 0px 170px 500px;
+    border-color: transparent transparent white transparent;
+    transition: var(--main-transition-duration);
+}
+.features .box:hover .img-holder::after{
+    border-width: 170px 500px 170px 0px;
+}
+.features .box h2{
+    position: relative;
+    font-size: 40px;
+    margin: auto;
+    width: fit-content;
+}
+.features .box h2::after{
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: 15px;
+    height: 5px;
+    background-color: transparent;
+    width: calc(100% - 30px);
+}
+.features .box p{
+    line-height: 2;
+    font-size: 20px;
+    margin: 30px 0;
+    padding: 25px;
+    color: #777;
+}
+.features .box a{
+    display: block;
+    border:3px solid transparent;
+    width: fit-content;
+    margin: 0 auto 30px;
+    font-weight: bold;
+    font-size: 22px;
+    padding: 10px 30px;
+    color: transparent;
+    transition: var(--main-transition-duration);
+}
+.features .quality .img-holder::before{
+    background-color: #f44036;
+    opacity: 0.5;
+}
+.features .quality h2::after{
+    background-color: #f44036;
+}
+.features .quality a{
+    color: #f44036;
+    border-color:#f44036;
+    background: linear-gradient(to right,#f44036 50% ,white 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+}
+
+.features .time .img-holder::before{
+    background-color: #009688;
+    opacity: 0.5;
+}
+.features .time h2::after{
+    background-color: #009688;
+}
+.features .time a{
+    color: #009688;
+    border-color:#009688;
+    background: linear-gradient(to right,#009688 50% ,white 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+}
+.features .passion .img-holder::before{
+    background-color: #03a9f4;
+    opacity: 0.5;
+}
+.features .passion h2::after{
+    background-color: #03a9f4;
+}
+.features .passion a{
+    color: #03a9f4;
+    border-color:#03a9f4;
+    background: linear-gradient(to right,#03a9f4 50% ,white 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+}
+
+.features .box:hover a{
+    background-position: left bottom;
+    color: white;
+}
+
+.features .box .img-holder img{
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 @keyframes up-and-down {
@@ -376,5 +624,22 @@ header .mega-menu .links li a i{
         border-radius: 0;
         width: 51%;
         height: 100%;
+    }
+}
+
+@keyframes moving-arrow {
+    100%{
+        transform: translateX(10px);
+    }
+}
+
+@keyframes flashing {
+    0% , 40%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        width: 200%;
+        height: 200%;
     }
 }
