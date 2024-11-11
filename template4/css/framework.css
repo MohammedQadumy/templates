@@ -119,6 +119,9 @@
 .mb-5{
     margin-bottom: 5px;
 }
+.mb-15{
+    margin-bottom: 15px;
+}
 .mb-10{
     margin-bottom: 10px;
 }
@@ -235,6 +238,9 @@
     background-color: var(--blue-alt-color);
 }
 
+.border-ccc{
+    border: 1px solid #ccc;
+}
 
 .rad-half{
     border-radius: 50%;
