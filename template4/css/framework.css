@@ -167,6 +167,9 @@
 .c-red{
     color: var(--red-color);
 }
+.c-grey{
+    color: var(--grey-color);
+}
 
 /* positioning  */
 .p-relative{
